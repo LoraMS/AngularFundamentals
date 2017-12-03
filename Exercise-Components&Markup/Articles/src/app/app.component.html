@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <ul>
+              <app-dashboard *ngFor="let article of articles" [article]="article" (selectedArticle)="showArticle($event)">
+              </app-dashboard>
+            </ul>
+          </div>
+          <div class="col-md-6 offset-md-2">
+            <app-article *ngIf="selectedArticle" [article]="selectedArticle" (deleteArticleEmitter)="deleteArticle($event)">
+                Select an Article
+            </app-article>
+          </div>
+        </div>
+      </div>
+<app-footer></app-footer>

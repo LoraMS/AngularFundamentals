@@ -1,0 +1,16 @@
+li{
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: rgb(105, 105, 105);
+}
+
+li:hover{
+    background-color: rgb(185, 216, 185);
+    cursor: pointer;
+}
+
+li h5{
+    color: rgb(105, 105, 105);
+}

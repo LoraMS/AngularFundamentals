@@ -1,0 +1,7 @@
+<!-- <li (click)="sendData(article.id)"> -->
+<li (click)="sendData($event)" [id]="article.id">
+    <h5>{{article.title}}</h5>
+    published by {{article.author}}
+    <br />
+    on {{date | date:'longDate'}}
+</li>

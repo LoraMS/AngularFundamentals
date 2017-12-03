@@ -1,0 +1,17 @@
+<div class="article">
+  <h2>
+    {{article?.title}}
+  </h2>
+  <div>published by {{article?.author}}</div>
+  <div>on {{date | date:'longDate'}}</div>
+  <div class="buttons">
+    <button *ngIf="!isTextShown" (click)="showText()">Read More</button>
+    <button *ngIf="isTextShown" (click)="hideText()">Hide Article</button>    
+    <button (click)="showHideImage()">{{imageButtonText}} Image</button>
+    <button (click)="deleteArticle(article.id)" class="delete">x</button>
+  </div>
+  <div class="article-text">{{trunc(article?.text)}}</div>
+  <div class="article-image" *ngIf="isImageShown">
+    <img [attr.src]="article.link" alt="article-image">
+  </div>
+</div>

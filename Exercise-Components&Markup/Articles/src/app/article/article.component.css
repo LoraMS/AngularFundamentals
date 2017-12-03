@@ -1,0 +1,30 @@
+.article{
+    color: rgb(105, 105, 105);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    position: relative; 
+    padding: 20px;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+button{
+    background-color: rgb(160, 160, 160);
+    color: #fff;
+    border: none;
+    margin-top: 20px;
+}
+
+.buttons .delete{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.article-image img{
+    width: 250px;
+    height: 200px;
+    margin-top: 20px;
+}
