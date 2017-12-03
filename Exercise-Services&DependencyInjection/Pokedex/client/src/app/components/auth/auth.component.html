@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <label for="username">Username: </label>
+    <input (keyup)="collectAuthData($event)" type="text" name="username" id="username">
+  </div>
+  <br/>
+  <label for="password">Password: </label>
+  <input (keyup)="collectAuthData($event)" type="password" name="password" id="password">
+  <button (click)="login()">Login</button>
+</div>
+<br/>
