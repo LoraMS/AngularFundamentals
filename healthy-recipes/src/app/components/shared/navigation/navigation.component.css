@@ -1,0 +1,8 @@
+nav a{
+    width: 15%;
+}
+
+nav a img{
+    max-width: 100%;
+    height: auto;
+}
