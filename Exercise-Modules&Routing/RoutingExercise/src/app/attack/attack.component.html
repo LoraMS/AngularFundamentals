@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+      <div style="text-align:center" style="color: gray" class="col-md-6">
+          <h1>{{ title }}!</h1>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-lg" (click)="logout()">Logout</button>
+      </div>
+      <div class="col-md-6" (click)="attackTeam($event)" style="background: red">Red</div>
+      <div class="col-md-6" (click)="attackTeam($event)" style="background: green">Green</div>
+      <div class="col-md-6" (click)="attackTeam($event)" style="background: blue">Blue</div>
+      <div class="col-md-6" (click)="attackTeam($event)" style="background: orange">Orange</div>
+  </div>
+</div>
