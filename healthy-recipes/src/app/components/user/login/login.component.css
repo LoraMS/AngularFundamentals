@@ -1,0 +1,8 @@
+.container{
+    margin-top: 100px;
+}
+
+.btn-login, .btn-register{
+    background-color: #009966;
+    color: #fff;
+}
