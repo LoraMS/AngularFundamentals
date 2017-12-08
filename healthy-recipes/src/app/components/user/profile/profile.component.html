@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card" style="width: 20rem;">
+              <img class="card-img-top" src="/assets/images/default-profile.png" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">User Profile Information</h4>
+                <!-- <p class="card-text"><strong>UserId: </strong>{{id}}</p> -->
+                <p class="card-text"><strong>Email: </strong> {{email}}</p>         
+              </div>
+            </div>
+      </div>
+      <div class="col-md-6">
+          <div>
+              <p>
+                  <button type="button" class="btn btn-outline-secondary" (click)="isCollapsedRecipes = !isCollapsedRecipes"
+                          [attr.aria-expanded]="!isCollapsedRecipes" aria-controls="collapseExampleRecipes">
+                          My Recipe Collection
+                  </button>
+                </p>
+                <div id="collapseExampleRecipes" [ngbCollapse]="isCollapsedRecipes">
+                  <div class="card">
+                    <div class="card-body">
+                      <ul>
+                        <li>Recipe Name</li>
+                        <li>Recipe Name</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+          </div>
+          <br/>
+            <div>
+                <p>
+                    <button type="button" class="btn btn-outline-secondary" (click)="isCollapsedArticles = !isCollapsedArticles"
+                            [attr.aria-expanded]="!isCollapsedArticles" aria-controls="collapseExampleArticles">
+                            My Article Collection
+                    </button>
+                  </p>
+                  <div id="collapseExampleArticles" [ngbCollapse]="isCollapsedArticles">
+                    <div class="card">
+                      <div class="card-body">
+                        <ul>
+                          <li>Article Name</li>
+                          <li>Article Name</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+      </div>
+    </div>
+</div>
