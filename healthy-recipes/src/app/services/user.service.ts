@@ -1,33 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { UserInterface } from '../interfaces/user';
-import * as firebase from 'firebase';
+import { Router } from '@angular/router';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Injectable()
 export class UserService {
-  private db: AngularFireDatabase;
-  private firebaseCollection;
-  public items;
-  public user;
 
-  constructor(db: AngularFireDatabase) {
-    this.db = db;
-  }
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
-  add(userId: string, user: UserInterface): void {
-    const path = `users/${userId}`;
 
-    this.db.object(path)
-        .set(user)
-        .catch((error) => console.log(error));
-}
 
-set(userId: string, data: object) {
-    const path = `users/${userId}`;
 
-    this.db.object(path)
-        .set(data)
-        .catch((error) => console.log(error));
-}
+  // getUser(key: string) {
+  //   const id = this.auth.authState.uid;
+  //   const usersPath =  `users/id`;
+  //   this.user = this.getUsers(usersPath);
 
+  //   return this.user;
+  //   }
 }

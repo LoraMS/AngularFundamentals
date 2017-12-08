@@ -1,26 +1,18 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/Subject';
-
-import { UserInterface } from './../interfaces/user';
-import { UserService } from './user.service';
 
 @Injectable()
 export class AuthService {
-  authState: any = null;
-  public authUpdated: Subject<boolean> = new Subject<boolean>();
+  public authState: any = null;
+  public user;
 
   constructor(
     private afAuth: AngularFireAuth,
-    private db: AngularFireDatabase,
-    private userData: UserService,
     private router: Router) {
 
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth;
-      this.authUpdated.next(this.authState);
     });
   }
 
@@ -28,8 +20,16 @@ export class AuthService {
     return (this.authState !== null) ? this.authState.isAnonymous : false;
   }
 
+  get currentUserId(): string {
+    return this.isAuthenticated ? this.authState.uid : '';
+  }
+
   get currentUserName(): string {
     return this.authState['email'];
+  }
+
+  get currentUser(): any {
+    return this.isAuthenticated ? this.authState : null;
   }
 
   get isUserEmailLoggedIn(): boolean {
@@ -44,24 +44,13 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  get currentUser(): any {
-    return this.isAuthenticated ? this.authState : null;
-  }
-
-  get currentUserId(): string {
-    return this.isAuthenticated ? this.authState.uid : '';
-  }
-
   signUpWithEmail(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
+        this.authState = user;
         localStorage.setItem('authkey', user.uid);
         localStorage.setItem('emailkey', user.email);
-        this.authState = user;
       })
-      // .then(() => {
-      //   this.userData.add(this.currentUserId, model);
-      // })
       .catch((error) => console.log(error));
   }
 
@@ -81,8 +70,7 @@ export class AuthService {
   signOut(): void {
     this.afAuth.auth.signOut()
       .then(() => {
-        localStorage.removeItem('authkey');
-        localStorage.removeItem('emailkey');
+        localStorage.clear();
         this.router.navigate(['/']);
       });
 
