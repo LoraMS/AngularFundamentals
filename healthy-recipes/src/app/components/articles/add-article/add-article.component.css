@@ -1,0 +1,22 @@
+button{
+    background-color: #009966;
+    color: #fff;
+}
+
+h2{
+    color: rgb(119, 115, 115);
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.card{
+    padding: 15px;
+}
+
+.preview{
+    margin-left: 16.67%;
+}
+
+.preview img{
+    max-width: 100%;
+    height: auto;
+}
