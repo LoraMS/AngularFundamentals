@@ -1,19 +1,21 @@
-// import { RecipeAuthorGuard } from './../../guards/recipe.author.guard';
-// import { AuthGuard } from './../../guards/auth.guard';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
-import { RecipesComponent } from './recipes/recipes.component';
-// import { CreateFormComponent } from './create.recipe.form/create.resipe.form.component';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
+import { RecipeAuthorGuard } from './../../guards/recipe-author.guard';
+import { AuthGuard } from './../../guards/auth.guard';
 
 
 const routes: Routes = [
     { path: '', redirectTo: 'all', pathMatch: 'full' },
-    { path: 'all', component: RecipesComponent },
-    // { path: 'create', component: CreateFormComponent, canActivate: [AuthGuard]  },
-    // { path: ':id', component: RecipeComponent },
-    // { path: ':id/edit', component: EditRecipeComponent, canActivate: [RecipeAuthorGuard]},
+    { path: 'all', component: RecipesListComponent },
+    { path: 'add', component: AddRecipeComponent, canActivate: [AuthGuard] },
+    { path: ':id', component: RecipeDetailsComponent },
+    { path: ':id/edit', component: EditRecipeComponent, canActivate: [RecipeAuthorGuard]}
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],

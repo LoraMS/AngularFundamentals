@@ -1,0 +1,159 @@
+<div class="container">
+  <!-- <p *ngIf="errorMessage.length > 0" class="text-danger">
+              {{errorMessage}}</p>
+            <p *ngIf="error.message.length > 0" class="text-danger">
+              {{error.message}}</p>         -->
+  <div class="card">
+    <div class="card-block">
+      <h2 class="text-center">Add New Recipe</h2>
+      <form role="form" (ngSubmit)="addRecipe(recipeAddForm.value)" #recipeAddForm="ngForm" >
+        <div class="form-group row">
+          <label for="title" class="sr-only control-label">title</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="title" placeholder="Title" required="" name="title" [(ngModel)]="title">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="author" class="sr-only control-label">author</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="author" placeholder="Author" required="" name="author" [(ngModel)]="author">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="category" class="sr-only control-label">category</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="category" placeholder="Category" required="" name="category" [(ngModel)]="category" [ngbTypeahead]="search">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="sr-only control-label">description</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="description" placeholder="Description" required="" name="description" [(ngModel)]="description">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ingredients" class="sr-only control-label">ingredients</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="ingredients" placeholder="Ingredients" required="" name="ingredients" [(ngModel)]="ingredients">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="steps" class="sr-only control-label">steps</label>
+            <div class="offset-sm-2 col-sm-8">
+              <input type="text" class="form-control" id="steps"  placeholder="Steps" required="" name="steps" [(ngModel)]="steps">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="image" class="sr-only control-label">image</label>
+            <div class="offset-sm-2 col-sm-8">
+              <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="image">
+            </div>
+          </div>
+          <div *ngIf="image" class=preview>
+            <img [src]="image" alt="preview"/> 
+          </div>
+        <div class="form-group row">
+          <div class="offset-sm-2 col-sm-8 pb-3 pt-2">
+            <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Add Recipe</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- "Title" 
+    <md-error *ngIf="titleFormControl.hasError('pattern')">
+      Please enter a valid title
+    </md-error>
+    <md-error *ngIf="titleFormControl.hasError('minlength')">
+      Title must be at least 10 characters long
+    </md-error>
+    <md-error *ngIf="titleFormControl.hasError('maxlength')">
+      Title must be maximum 150 characters long
+    </md-error>
+    <md-error *ngIf="titleFormControl.hasError('required')">
+      Title is <strong>required</strong>
+    </md-error>
+    "Image URL" 
+    <md-error *ngIf="imageFormControl.hasError('pattern')">
+      Please enter a valid image address
+    </md-error>
+    <md-error *ngIf="imageFormControl.hasError('required')">
+      Image is <strong>required</strong>
+    </md-error>
+  <img [src]="recipe.image" class=preview>
+  placeholder="Choose Category" 
+    <md-error *ngIf="categoryFormControl.hasError('pattern')">
+      Please enter a valid category
+    </md-error>
+    <md-error *ngIf="categoryFormControl.hasError('required')">
+      Category is <strong>required</strong>
+    </md-error>
+    "Short Description" 
+    <md-hint align="end">{{description.value.length}} / 300</md-hint>
+    <md-error *ngIf="descriptionFormControl.hasError('pattern')">
+      Please enter a valid description
+    </md-error>
+    <md-error *ngIf="descriptionFormControl.hasError('minlength')">
+      Description must be at least 10 characters long
+    </md-error>
+    <md-error *ngIf="descriptionFormControl.hasError('maxlength')">
+      Description must be maximum 300 characters long
+    </md-error>
+    <md-error *ngIf="descriptionFormControl.hasError('required')">
+      Description is <strong>required</strong>
+    </md-error>
+  "Ingredients"
+    <md-hint align="end">Enter ingredients separeted with comma</md-hint>
+    <md-error *ngIf="ingredientsFormControl.hasError('pattern')">
+      Please enter a valid ingredients
+    </md-error>
+    <md-error *ngIf="ingredientsFormControl.hasError('required')">
+      Ingredients field is <strong>required</strong>
+    </md-error>
+  
+  <table class="table" cellspacing="10">
+    <tr>
+      <td>
+        <md-input-container class="form-control">
+          <input mdInput placeholder="Prepare Time min" name="prepareTime" [(ngModel)]="recipe.prepareTime" [formControl]="prepareTimeFormControl"
+          required>
+          <md-icon mdSuffix>mode_edit</md-icon>
+          <md-error *ngIf="prepareTimeFormControl.hasError('pattern')">
+              Please enter a valid prepare time
+            </md-error>
+            <md-error *ngIf="prepareTimeFormControl.hasError('required')">
+              Prepare time is <strong>required</strong>
+            </md-error>
+        </md-input-container>
+      </td>
+      <td>
+        <md-input-container class="form-control">
+          <input mdInput placeholder="Yield" name="yields" [(ngModel)]="recipe.yields" [formControl]="yieldsFormControl"
+          required>
+          <md-icon mdSuffix>mode_edit</md-icon>
+          <md-error *ngIf="yieldsFormControl.hasError('pattern')">
+              Please enter a valid yield
+            </md-error>
+            <md-error *ngIf="yieldsFormControl.hasError('required')">
+              Yield is <strong>required</strong>
+            </md-error>
+        </md-input-container>
+      </td>
+    </tr>
+  </table>
+  "First Step" 
+    <md-error *ngIf="stepFirstFormControl.hasError('pattern')">
+      Please enter a valid step
+    </md-error>
+    <md-error *ngIf="stepFirstFormControl.hasError('minlength')">
+      Step must be at least 10 characters long
+    </md-error>
+    <md-error *ngIf="stepFirstFormControl.hasError('required')">
+      Step is <strong>required</strong>
+    </md-error>
+  <button type="submit" [disabled]="!recipeAddForm.valid">Create Recipe</button>
+</form> -->
