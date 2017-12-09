@@ -5,7 +5,7 @@ export interface RecipeInterface {
     category: string;
     createdOn: number;
     description: string;
-    ingradients: any;
+    ingredients: string;
     steps: string;
     image: string;
     likes: number;

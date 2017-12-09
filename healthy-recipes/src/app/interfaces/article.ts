@@ -1,0 +1,9 @@
+export interface ArticleInterface {
+    title: string;
+    author: string;
+    userId: string;
+    createdOn: number;
+    description: string;
+    image: string;
+    comments?: any;
+}

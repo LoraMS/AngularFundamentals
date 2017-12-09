@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   error: {name: string, message: string} = {name: '', message: ''};
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private toastr: ToastrService) {}
 
   ngOnInit(): void {
   }
@@ -26,25 +27,30 @@ export class LoginComponent implements OnInit {
   onSignUp(): void {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
-      this.auth.signUpWithEmail(this.email, this.password)
-        .then(() => {
-          this.router.navigate(['/']);
-        }).catch(_error => {
-          this.error = _error;
-          this.router.navigate(['/']);
-        });
+      this.auth.signUpWithEmail(this.email, this.password);
+        // .then(() => {
+        //   this.toastr.success('You have sign up!', 'Success!');
+        //   this.router.navigate(['/']);
+        // })
+        // .catch((error) => {
+        //   this.toastr.error(error.message, 'Ooops!');
+        //   this.router.navigate(['/']);
+        // });
     }
   }
 
   onLoginEmail(): void {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
-      this.auth.loginWithEmail(this.email, this.password)
-        .then(() => this.router.navigate(['/']))
-        .catch(_error => {
-          this.error = _error;
-          this.router.navigate(['/']);
-        });
+      this.auth.loginWithEmail(this.email, this.password);
+        // .then(() => {
+        //   this.router.navigate(['/']);
+        //   this.toastr.success('You have logged in!', 'Success!');
+        // })
+        // .catch((error) => {
+        //   this.toastr.error(error.message, 'Ooops!');
+        //   this.router.navigate(['/']);
+        // });
     }
   }
 
