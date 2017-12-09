@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card bg-light border-dark mb-3" style="max-width: 50rem;">
+    <div class="card-header">
+      <ngb-rating [(rate)]="currentRate"></ngb-rating>
+      <span class="mr-3 ml-3">
+        Rate:
+        <span class="badge badge-secondary">{{currentRate}}</span>
+      </span>
+      <span class="mr-3">
+        Comments:
+        <span class="badge badge-secondary">{{currentCommentsLength}}</span>
+      </span>
+    </div>
+    <img class="card-img-top" src="{{recipe?.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{recipe?.title}}</h4>
+      <p class="card-text">{{recipe?.description}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted mr-3">category: {{recipe?.category}}</small>
+      <small class="text-muted mr-3">author: {{recipe?.author}}</small>
+      <small class="text-muted mr-3">posted on: {{recipe?.createdOn | date:"longDate"}}</small>
+    </div>
+  </div>
+  <div class="card border-dark mb-3" style="width: 50rem;">
+    <ul class="list-group list-group">
+      <li class="list-group-item">
+        <h4 class="card-title">Ingredients</h4>
+        <p class="card-text">{{recipe?.ingredients}}</p>
+      </li>
+      <li class="list-group-item">
+        <h4 class="card-title">Instructions</h4>
+        <p class="card-text">{{recipe?.steps}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="card border-dark mb-3" style="max-width: 50rem;">
+      <div class="card-header">Comments <span class="badge badge-secondary">{{currentCommentsLength}}</span></div>
+      <div class="card-body text-dark">
+        <h4 class="card-title">Secondary card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+</div>
