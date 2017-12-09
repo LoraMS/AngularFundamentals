@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-6 mb-3">
+      <button routerLink="/blog/add" class="btn btn-outline-secondary mr-3" style="width: 10rem;">Add Article</button>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search Articles</button>
+      </form>
+    </div>
+    <div class="col-md-6 col-12 card-container" *ngFor="let article of articles">
+      <div class="card">
+        <img class="card-img-top" src="{{article?.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{article?.title}}</h4>
+          <p class="card-text text-truncate" style="max-width: 500px;">{{article?.description}}</p>
+        </div>
+        <div class="card-footer">
+          <button routerLink="/blog/{{article?.key}}" class="btn btn-outline-secondary">Read more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
