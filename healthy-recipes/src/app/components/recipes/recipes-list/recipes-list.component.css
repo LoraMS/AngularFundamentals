@@ -1,0 +1,18 @@
+button{
+    background-color: #009966;
+    color: #fff;
+    padding: 5px;
+}
+
+.card-container{
+    height: 500px;
+    margin-bottom: 50px;
+}
+
+.card{
+    height: inherit;
+}
+
+img{
+    height: 240px;
+}
