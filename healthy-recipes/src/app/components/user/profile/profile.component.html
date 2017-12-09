@@ -4,9 +4,10 @@
           <div class="card" style="width: 20rem;">
               <img class="card-img-top" src="/assets/images/default-profile.png" alt="Card image cap">
               <div class="card-body">
-                <h4 class="card-title">User Profile Information</h4>
-                <!-- <p class="card-text"><strong>UserId: </strong>{{id}}</p> -->
-                <p class="card-text"><strong>Email: </strong> {{email}}</p>         
+                <h3 class="card-title">User Profile Information</h3>
+                <p class="card-text"><strong>Email: </strong> {{email}}</p>
+                <p class="card-text"><strong>Recipes: </strong><span class="badge badge-secondary">0</span></p>
+                <p class="card-text"><strong>Articles: </strong><span class="badge badge-secondary">0</span></p>       
               </div>
             </div>
       </div>
@@ -22,8 +23,7 @@
                   <div class="card">
                     <div class="card-body">
                       <ul>
-                        <li>Recipe Name</li>
-                        <li>Recipe Name</li>
+                        <app-recipe-collection></app-recipe-collection>
                       </ul>
                     </div>
                   </div>
@@ -41,8 +41,7 @@
                     <div class="card">
                       <div class="card-body">
                         <ul>
-                          <li>Article Name</li>
-                          <li>Article Name</li>
+                          <app-article-collection></app-article-collection>
                         </ul>
                       </div>
                     </div>
