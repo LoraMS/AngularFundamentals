@@ -1,0 +1,9 @@
+<form class="comments-form" *ngIf="isAuthenticated()" #commentAddForm="ngForm" (ngSubmit)="onSubmit(commentAddForm.value)">
+  <div class="form-group row">
+    <label for="textComment" class="sr-only control-label">text comment</label>
+    <textarea class="form-control" id="textComment" placeholder="Leave a comment" required="" name="textComment" [(ngModel)]="textComment" rows="4"></textarea>
+  </div>
+  <div class="comment-btn">
+    <button class="btn btn-outline-secondary" type="submit">Add Comment</button>
+  </div>
+</form>
