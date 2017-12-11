@@ -1,3 +1,20 @@
 .card{
     margin: 0 auto;
 }
+
+.card-header img{
+    max-width: 80%;
+    height: auto;
+}
+
+.badge{
+    font-size: 16px;
+}
+
+.oi{
+    font-size: 18px;
+}
+
+button, a.btn{
+    background-color: #009966;
+}

@@ -14,6 +14,8 @@ export class ArticleDetailsComponent implements OnInit {
   public article: Article;
   public commentsLength: number;
   public currentCommentsLength: number;
+  public articleKey: string;
+  public path = 'articles';
 
   constructor(private data: ArticlesService, private route: ActivatedRoute) { }
 
@@ -21,6 +23,7 @@ export class ArticleDetailsComponent implements OnInit {
     this.route.params
     .subscribe(params => {
       const id = params.id;
+      this.articleKey = id;
       this.data.getAtricleById(id).valueChanges().subscribe(data => {
         this.article = data;
         if (data.comments) {
