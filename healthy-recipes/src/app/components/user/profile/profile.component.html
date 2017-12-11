@@ -6,8 +6,8 @@
               <div class="card-body">
                 <h3 class="card-title">User Profile Information</h3>
                 <p class="card-text"><strong>Email: </strong> {{email}}</p>
-                <p class="card-text"><strong>Recipes: </strong><span class="badge badge-secondary">{{recipeCollectionLength}}</span></p>
-                <p class="card-text"><strong>Articles: </strong><span class="badge badge-secondary">{{articleCollectionLength}}</span></p>       
+                <p class="card-text"><strong>My Recipes: </strong><span class="badge badge-secondary">{{recipeCollectionLength}}</span></p>
+                <p class="card-text"><strong>My Articles: </strong><span class="badge badge-secondary">{{articleCollectionLength}}</span></p>       
               </div>
             </div>
       </div>
@@ -44,7 +44,7 @@
                     <div class="card">
                       <div class="card-body">
                           <div *ngIf="createdArticles?.length == 0">
-                              <p><em>Your collection is empty. Click <a href="/blog/add"> here </a>to add article.</em></p>
+                              <p><em>Your collection is empty. Click <a href="/articles/add"> here </a>to add article.</em></p>
                             </div>
                         <ul *ngIf="createdArticles?.length > 0">
                           <app-article-collection [createdArticles]="createdArticles"></app-article-collection>

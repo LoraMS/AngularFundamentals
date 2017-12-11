@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', loadChildren: './components/user/user.module#UserModule' },
   { path: 'recipes', loadChildren: './components/recipes/recipes.module#RecipesModule' },
-  { path: 'blog', loadChildren: './components/articles/articles.module#ArticlesModule' },
+  { path: 'articles', loadChildren: './components/articles/articles.module#ArticlesModule' },
   { path: '**', component: PageNotFoundComponent}
 ];
 

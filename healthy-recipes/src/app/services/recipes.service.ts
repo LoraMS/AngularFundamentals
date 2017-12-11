@@ -24,10 +24,6 @@ export class RecipesService {
     });
    }
 
-  // getAllRecipes() {
-  //   return this.db.list<Recipe>(`${this.dbPath}`).valueChanges();
-  // }
-
   getRecipeById(recipeKey: string): AngularFireObject<Recipe> {
     return this.db.object(`${this.dbPath}/${recipeKey}`);
   }

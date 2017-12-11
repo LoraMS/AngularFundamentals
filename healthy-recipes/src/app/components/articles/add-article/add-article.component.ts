@@ -34,6 +34,6 @@ export class AddArticleComponent implements OnInit {
      Date.now(), this.description, this.image, this.comments);
     this.data.addArticle(newArticle);
     this.toastr.success('Your article was added successfully!', 'Success!');
-    this.router.navigate(['/blog']);
+    this.router.navigate(['/articles']);
   }
 }
