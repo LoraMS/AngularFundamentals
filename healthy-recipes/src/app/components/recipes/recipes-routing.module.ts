@@ -12,10 +12,10 @@ import { AuthGuard } from './../../guards/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'all', pathMatch: 'full' },
-    { path: 'all', component: RecipesListComponent },
-    { path: 'add', component: AddRecipeComponent, canActivate: [AuthGuard] },
-    { path: ':id', component: RecipeDetailsComponent },
-    { path: ':id/edit', component: EditRecipeComponent, canActivate: [RecipeAuthorGuard]}
+    { path: 'all', component: RecipesListComponent, pathMatch: 'full'  },
+    { path: 'add', component: AddRecipeComponent, canActivate: [AuthGuard], pathMatch: 'full'  },
+    { path: ':id', component: RecipeDetailsComponent, pathMatch: 'full'  },
+    { path: ':id/edit', component: EditRecipeComponent, pathMatch: 'full' },
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],

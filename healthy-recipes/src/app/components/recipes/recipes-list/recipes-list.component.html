@@ -1,9 +1,9 @@
 <div class="container">
+  <div class="btn-box">
+      <button routerLink="/recipes/add" class="btn btn-outline-secondary p-2 mb-3">Add Recipe</button>
+  </div>
   <div class="row">
-    <div class="col-12 mb-3">
-      <button routerLink="/recipes/add" class="btn btn-outline-secondary btn-block">Add Recipe</button>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12 card-container" *ngFor="let recipe of recipes">
+    <div class="col-md-4 col-sm-6 col-12 card-container mb-3" *ngFor="let recipe of recipes">
       <div class="card">
         <img class="card-img-top" src="{{recipe?.image}}" alt="Card image cap">
         <div class="card-body">

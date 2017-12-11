@@ -12,8 +12,12 @@ import { ArticlesService } from './../../../services/articles.service';
 export class ArticlesListComponent implements OnInit {
   public article: Article;
   public articles: Array<Article>;
+  public searchWord: string;
+  public sortBy: string;
 
-  constructor(private data: ArticlesService, private toastr: ToastrService) { }
+  constructor(private data: ArticlesService, private toastr: ToastrService) {
+    this.searchWord = '';
+   }
 
   ngOnInit() {
     this.data.articles.subscribe(data => {
@@ -23,6 +27,10 @@ export class ArticlesListComponent implements OnInit {
       this.toastr.error(error.message, 'Ooops!');
     }
   );
+  }
+
+  orderByTitle() {
+    this.articles.sort((a, b) => a.title.localeCompare(b.title));
   }
 
 }

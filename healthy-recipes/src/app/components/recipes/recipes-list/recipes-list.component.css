@@ -4,6 +4,10 @@ button{
     padding: 5px;
 }
 
+.btn-box{
+    text-align: end;
+}
+
 .card-container{
     height: 500px;
     margin-bottom: 50px;

@@ -23,6 +23,7 @@ import { UserModule } from './components/user/user.module';
 
 import { AuthGuard } from './guards/auth.guard';
 import { RecipeAuthorGuard } from './guards/recipe-author.guard';
+import { ArticleAuthorGuard } from './guards/article-author.guard';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -51,7 +52,7 @@ import { ArticlesService } from './services/articles.service';
     ArticlesModule,
     UserModule
   ],
-  providers: [AuthService, UserService, RecipesService, ArticlesService, AuthGuard, RecipeAuthorGuard],
+  providers: [AuthService, UserService, RecipesService, ArticlesService, AuthGuard, RecipeAuthorGuard, ArticleAuthorGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

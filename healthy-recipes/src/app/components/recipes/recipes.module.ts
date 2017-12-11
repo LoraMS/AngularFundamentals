@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RecipesRoutingModule } from './recipes-routing.module';
+import { SharedModule } from './../shared/shared.module';
 
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
@@ -18,7 +19,8 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
         NgbModule,
         FormsModule,
         ReactiveFormsModule,
-        RecipesRoutingModule
+        RecipesRoutingModule,
+        SharedModule
     ],
     declarations: [
         RecipesListComponent,
