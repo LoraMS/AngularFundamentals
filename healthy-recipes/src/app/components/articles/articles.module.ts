@@ -10,8 +10,10 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 // import { EditArticleComponent } from './edit-article/edit-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
-
+import { SearchPipe } from '../../pipes/search.pipe';
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -20,18 +22,21 @@ import { AddArticleComponent } from './add-article/add-article.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    ArticlesRoutingModule
+    ArticlesRoutingModule,
+    SharedModule,
   ],
   declarations: [
     ArticlesListComponent,
     AddArticleComponent,
     ArticleDetailsComponent,
-    // EditArticleComponent
-  ],
+    // EditArticleComponent,
+    EditArticleComponent,
+    SearchPipe,
+],
   exports: [
-    ArticlesListComponent,
-    AddArticleComponent,
-    ArticleDetailsComponent,
+    // ArticlesListComponent,
+    // AddArticleComponent,
+    // ArticleDetailsComponent,
     // EditArticleComponent
 ]
 })
