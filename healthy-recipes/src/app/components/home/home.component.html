@@ -1,23 +1,23 @@
 <div class="container">
   <ngb-carousel>
     <ng-template ngbSlide>
-      <img src="../../../assets/images/plan-food.jpg"  alt="Random second slide">
+      <img src="../../../assets/images/food.jpg"  alt="Random slide">
       <div class="carousel-caption">
-        <h3>Publish Recipe</h3>
+        <h3>Post Recipe</h3>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <img src="../../../assets/images/fitness.jpg" alt="Random second slide">
+      <img src="../../../assets/images/fitness.jpg" alt="Random slide">
       <div class="carousel-caption">
-        <h3>Publish Article</h3>
+        <h3>Post Article</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <img src="../../../assets/images/seasoning.jpg"  alt="Random second slide">
+      <img src="../../../assets/images/Nutrition_Facts.jpeg"  alt="Random slide">
       <div class="carousel-caption">
-        <h3>Search Nutritional Composition</h3>
+        <h3>Search Nutrition Facts</h3>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
     </ng-template>
@@ -28,31 +28,30 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-sm-6 col-12">
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Card image cap">
+      <div class="card" style="width: 15rem;" *ngFor="let r of recipes">
+        <img class="card-img-top" src="{{r?.image}}" alt="Card image cap">
         <div class="card-body">
-          <!-- <h6 class="card-title">Recipes</h6> -->
-          <p class="card-text">Some quick example text to build on the card title.</p>
+          <p class="card-text text-truncate" style="max-width: 200px;">{{r?.description}}</p>
           <a routerLink="/recipes/all" class="btn btn-success btn-go-to">Go to Recipes</a>
         </div>
       </div>
     </div>
     <div class="col-md-4 col-sm-6 col-12">
-      <div class="card" style="width: 15rem;">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Card image cap">
+      <div class="card" style="width: 15rem;" *ngFor="let a of articles">
+        <img class="card-img-top" src="{{a?.image}}" alt="Card image cap">
         <div class="card-body">
           <!-- <h6 class="card-title">Blog</h6> -->
-          <p class="card-text">Some quick example text to build on the card title.</p>
+          <p class="card-text text-truncate" style="max-width: 200px;">{{a?.description}}</p>
           <a routerLink="/articles/all" class="btn btn-success btn-go-to">Go to Blog</a>
         </div>
       </div>
     </div>
     <div class="col-md-4 col-sm-6 col-12">
       <div class="card" style="width: 15rem;">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Card image cap">
+        <img class="card-img-top" src="../../../assets/images/nutrition.jpg" alt="Card image cap">
         <div class="card-body">
           <!-- <h6 class="card-title">Nutritional Info</h6> -->
-          <p class="card-text">Some quick example text to build on the card title.</p>
+          <p class="card-text">Some quick example text</p>
           <a href="#" class="btn btn-success btn-go-to">Go to Info</a>
         </div>
       </div>
