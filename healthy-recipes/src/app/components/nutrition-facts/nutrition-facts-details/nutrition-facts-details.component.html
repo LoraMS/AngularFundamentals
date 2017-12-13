@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <div class="card bg-light border-dark mb-3" style="max-width: 50rem;">
+        <img class="card-img-top" src="{{fact?.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{fact?.productName}}</h4>
+          <div class="text-muted">
+              <strong>Serving Size: </strong>{{fact?.servingSize | number : '1.2-2'}} g</div>
+          <button class="btn btn-danger" *ngIf="role == 'admin'" (click)="remove()">
+            <i class="fa fa-trash-o"></i> Delete
+          </button>
+        </div>
+        <div class="card-footer">
+          <div class="text-muted">
+            <strong>Calories: </strong>{{fact?.calories | number: '1.2-2'}}</div>
+          <div class="text-muted">
+            <strong>Protein: </strong>{{fact?.protein | number : '1.2-2'}} g</div>
+          <div class="text-muted">
+            <strong>Total Fat: </strong>{{totalFat | number : '1.2-2'}} g</div>
+          <div class="text-muted">
+            <strong>Total Carbohydrate: </strong>{{totalCarbohydrate | number : '1.2-2'}}g</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 offset-md-2">
+      <div class="card border-dark">
+        <div class="card-header"><h4>Nutrition Facts</h4></div>
+        <ul class="list-group list-group">
+          <li class="list-group-item">
+            <p class="card-text">Calories: <span class="factNum">{{fact?.calories | number : '1.2-2'}}</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Total Fat: <span class="factNum">{{totalFat | number : '1.2-2'}} g</span></p>
+              <p class="card-text pl-3"><em>Saturated Fat: <span class="factNum">{{fact?.saturatedFat | number : '1.2-2'}} g</span></em></p>
+              <p class="card-text pl-3"><em>Trans Fat: <span class="factNum">{{fact?.transFat | number : '1.2-2'}} g</span></em></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Cholesterol: <span class="factNum">{{fact?.cholesterol | number : '1.2-2'}} mg</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Sodium: <span class="factNum">{{fact?.sodium | number : '1.2-2'}} mg</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Total Carbohydrate: <span class="factNum">{{totalCarbohydrate | number : '1.2-2'}} g</span></p>
+              <p class="card-text pl-3"><em>Dietary Fiber: <span class="factNum">{{fact?.dietaryFiber | number : '1.2-2'}} g</span></em></p>
+              <p class="card-text pl-3"><em>Total Sugar: <span class="factNum">{{fact?.totalSugars | number : '1.2-2'}} g</span></em></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Protein: <span class="factNum">{{fact?.protein | number : '1.2-2'}} g</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Vitamin A: <span class="factNum">{{fact?.vitaminA | number : '1.2-2'}} UI</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Vitamin C: <span class="factNum">{{fact?.vitaminC | number : '1.2-2'}} mg</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Calcium: <span class="factNum">{{fact?.calcium | number : '1.2-2'}} mg</span></p>
+          </li>
+          <li class="list-group-item">
+              <p class="card-text">Iron: <span class="factNum">{{fact?.iron | number : '1.2-2'}} mg</span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
