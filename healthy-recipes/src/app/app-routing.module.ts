@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'user', loadChildren: './components/user/user.module#UserModule' },
   { path: 'recipes', loadChildren: './components/recipes/recipes.module#RecipesModule' },
   { path: 'articles', loadChildren: './components/articles/articles.module#ArticlesModule' },
+  { path: 'nutritionfacts', loadChildren: './components/nutrition-facts/nutrition-facts.module#NutritionFactsModule' },
   { path: '**', component: PageNotFoundComponent}
 ];
 

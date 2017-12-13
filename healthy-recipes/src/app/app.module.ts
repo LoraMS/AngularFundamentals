@@ -24,12 +24,13 @@ import { UserModule } from './components/user/user.module';
 import { AuthGuard } from './guards/auth.guard';
 import { RecipeAuthorGuard } from './guards/recipe-author.guard';
 import { ArticleAuthorGuard } from './guards/article-author.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { RecipesService } from './services/recipes.service';
 import { ArticlesService } from './services/articles.service';
-
+import { NutritionFactsService } from './services/nutrition-facts.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,16 @@ import { ArticlesService } from './services/articles.service';
     ArticlesModule,
     UserModule
   ],
-  providers: [AuthService, UserService, RecipesService, ArticlesService, AuthGuard, RecipeAuthorGuard, ArticleAuthorGuard],
+  providers: [
+    AuthService,
+    UserService,
+    RecipesService,
+    ArticlesService,
+    NutritionFactsService,
+    AuthGuard,
+    RecipeAuthorGuard,
+    ArticleAuthorGuard,
+    AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
