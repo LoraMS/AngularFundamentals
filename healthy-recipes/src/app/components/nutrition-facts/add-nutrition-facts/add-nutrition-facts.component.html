@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <h2 class="text-center">Add Nutrition Facts</h2>
+      <form role="form" (ngSubmit)="addNutritionFacts(NutritionFactsAddForm.value)" #NutritionFactsAddForm="ngForm">
+        <div class="form-group row">
+          <label for="productName" class="sr-only control-label">productName</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="productName" placeholder="Product Name" required="" name="productName" [(ngModel)]="productName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="image" class="sr-only control-label">image</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="image">
+          </div>
+        </div>
+        <div *ngIf="image" class=preview>
+          <img [src]="image" alt="preview" />
+        </div>
+        <div class="form-group row">
+          <label for="servingSize" class="sr-only control-label">serving size</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="number" class="form-control" id="servingSize" placeholder="Serving Size(g)" required="" name="servingSize" [(ngModel)]="servingSize">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="calories" class="sr-only control-label">calories</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="number" class="form-control" id="calories" placeholder="Calories" required="" name="calories" [(ngModel)]="calories">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <label for="saturatedFat" class="sr-only control-label">saturated Fat</label>
+              <div class="offset-sm-4 col-sm-8">
+                <input type="number" class="form-control" id="saturatedFat" placeholder="Saturated Fat(g)" required="" name="saturatedFat"
+                  [(ngModel)]="saturatedFat">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group row">
+              <label for="transFat" class="sr-only control-label">trans Fat</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="transFat" placeholder="Trans Fat(g)" required="" name="transFat" [(ngModel)]="transFat">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <label for="cholesterol" class="sr-only control-label">cholesterol</label>
+              <div class="offset-sm-4 col-sm-8">
+                <input type="number" class="form-control" id="cholesterol" placeholder="Cholesterol(g)" required="" name="cholesterol" [(ngModel)]="cholesterol">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group row">
+              <label for="sodium" class="sr-only control-label">sodium</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="sodium" placeholder="Sodium(g)" required="" name="sodium" [(ngModel)]="sodium">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <label for="dietaryFiber" class="sr-only control-label">dietaryFiber</label>
+              <div class="offset-sm-4 col-sm-8">
+                <input type="number" class="form-control" id="dietaryFiber" placeholder="Dietary Fiber(g)" required="" name="dietaryFiber"
+                  [(ngModel)]="dietaryFiber">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group row">
+              <label for="totalSugars" class="sr-only control-label">totalSugars</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="totalSugars" placeholder="Total Sugars(g)" required="" name="totalSugars" [(ngModel)]="totalSugars">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="protein" class="sr-only control-label">protein</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="number" class="form-control" id="protein" placeholder="Protein" required="" name="protein" [(ngModel)]="protein">
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <label for="vitaminA" class="sr-only control-label">vitaminA</label>
+              <div class="offset-sm-4 col-sm-8">
+                <input type="number" class="form-control" id="vitaminA" placeholder="Vitamin A(IU)" required="" name="vitaminA" [(ngModel)]="vitaminA">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="form-group row">
+              <label for="vitaminC" class="sr-only control-label">vitaminC</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="vitaminC" placeholder="Vitamin C(g)" required="" name="vitaminC" [(ngModel)]="vitaminC">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="calcium" class="sr-only control-label">calcium</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="number" class="form-control" id="calcium" placeholder="Calcium" required="" name="calcium" [(ngModel)]="calcium">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="iron" class="sr-only control-label">iron</label>
+          <div class="offset-sm-2 col-sm-8">
+            <input type="number" class="form-control" id="iron" placeholder="Iron" required="" name="iron" [(ngModel)]="iron">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-sm-2 col-sm-8 pb-3 pt-2">
+            <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Add Nutrition Facts</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
