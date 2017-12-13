@@ -1,0 +1,13 @@
+img{
+    height: 220px;
+}
+
+button{
+    background-color: #009966;
+    color: #fff;
+    padding: 5px;
+}
+
+.btn-box{
+    text-align: end;
+}

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="btn-box">
+        <button routerLink="/nutritionfacts/add" class="btn btn-outline-secondary p-2 mb-3">Add Nutrition Facts</button>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-12 card-container mb-3" *ngFor="let fact of facts">
+        <div class="card">
+          <img class="card-img-top" src="{{fact?.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{fact?.productName}}</h4>
+          </div>
+          <div class="card-footer">
+            <button routerLink="/nutritionfacts/{{fact?.key}}" class="btn btn-outline-secondary">Read more</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
