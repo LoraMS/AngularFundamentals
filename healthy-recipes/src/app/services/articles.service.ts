@@ -32,4 +32,13 @@ export class ArticlesService {
         const articles = this.db.list(`${this.dbPath}`);
         articles.push(article);
     }
+
+    removeArticle(articleKey: string) {
+        this.db.object(`${this.dbPath}/${articleKey}`).remove()
+        .then((data) => console.log(data))
+        .catch((error) => {
+          this.toastr.error(error.message, 'Ooops!');
+          this.router.navigate(['/']);
+        });
+      }
 }
