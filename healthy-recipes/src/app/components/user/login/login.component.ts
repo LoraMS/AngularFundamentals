@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,15 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  email = '';
-  password = '';
+  private user: User;
+  private userId;
+
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  role: string;
   errorMessage = '';
   error: {name: string, message: string} = {name: '', message: ''};
 
@@ -26,8 +34,10 @@ export class LoginComponent implements OnInit {
 
   onSignUp(): void {
     this.clearErrorMessage();
+    const user = new User(this.name, this.username, this.email, this.role);
+
     if (this.validateForm(this.email, this.password)) {
-      this.auth.signUpWithEmail(this.email, this.password);
+      this.auth.signUpWithEmail(this.email, this.password, user);
         // .then(() => {
         //   this.toastr.success('You have sign up!', 'Success!');
         //   this.router.navigate(['/']);
