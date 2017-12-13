@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { RecipesService } from './../../../services/recipes.service';
+import { UserService } from './../../../services/user.service';
 import { Recipe } from './../../../models/recipe';
 import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -20,11 +21,13 @@ export class RecipeDetailsComponent implements OnInit {
   public recipeKey: string;
   public path = 'recipes';
   public userId: string;
+  public role: string;
   isLiked: any;
 
   constructor(
     private data: RecipesService,
     private route: ActivatedRoute,
+    private userData: UserService,
     config: NgbRatingConfig,
     private auth: AuthService,
     private router: Router,
@@ -49,6 +52,11 @@ export class RecipeDetailsComponent implements OnInit {
           this.currentCommentsLength = this.commentsLength || 0;
         });
       });
+
+    this.userData.getUserById(localStorage.getItem('authkey')).valueChanges()
+    .subscribe(u => {
+    this.role = u['role'];
+    });
   }
 
   isAuthenticated() {

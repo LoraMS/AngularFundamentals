@@ -3,6 +3,9 @@
     <img class="card-img-top" src="{{article?.image}}" alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">{{article?.title}}</h4>
+      <button class="btn btn-danger" *ngIf="role == 'admin'" (click)="remove()">
+          <i class="fa fa-trash-o"></i> Delete
+      </button>
     </div>
     <div class="card-footer">
       <small class="text-muted mr-3">author: {{article?.author}}</small>

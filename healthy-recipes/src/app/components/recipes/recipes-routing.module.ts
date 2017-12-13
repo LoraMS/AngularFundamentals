@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'all', component: RecipesListComponent, pathMatch: 'full'  },
     { path: 'add', component: AddRecipeComponent, canActivate: [AuthGuard], pathMatch: 'full'  },
     { path: ':id', component: RecipeDetailsComponent, pathMatch: 'full'  },
-    { path: ':id/edit', component: EditRecipeComponent, pathMatch: 'full' },
+    { path: ':id/edit', component: EditRecipeComponent, canActivate: [RecipeAuthorGuard], pathMatch: 'full' },
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],

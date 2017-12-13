@@ -15,13 +15,13 @@
     <div class="card-body">
       <h4 class="card-title">{{recipe?.title}}</h4>
       <p class="card-text">{{recipe?.description}}</p>
-      <button class="btn btn-success mr-3" *ngIf=isAuthenticated() (click)="rateRecipe(recipeKey)">
+      <button class="btn btn-success mr-3" *ngIf="isAuthenticated()" (click)="rateRecipe(recipeKey)">
         <i class="fa fa-star-o"></i> Like
     </button>
-      <button class="btn btn-success mr-3" *ngIf=isAuthor(recipe?.userId) [routerLink]="['/recipes', recipeKey, 'edit']">
+      <button class="btn btn-success mr-3" *ngIf="isAuthor(recipe?.userId)  || role == 'admin'" [routerLink]="['/recipes', recipeKey, 'edit']">
         <i class="fa fa-edit"></i> Edit
       </button>
-      <button class="btn btn-danger" *ngIf=isAuthor(recipe?.userId) (click)="remove()">
+      <button class="btn btn-danger" *ngIf="isAuthor(recipe?.userId) || role == 'admin'" (click)="remove()">
           <i class="fa fa-trash-o"></i> Delete
       </button>
     </div>
