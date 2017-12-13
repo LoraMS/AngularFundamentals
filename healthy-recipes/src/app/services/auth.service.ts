@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from './user.service';
+import { User } from './../models/user';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +13,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private userData: UserService) {
 
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth;
@@ -24,7 +27,7 @@ export class AuthService {
 
   get currentUserId(): string {
     return this.isAuthenticated ? this.authState.uid : '';
-  }
+}
 
   get currentUserName(): string {
     return this.authState['email'];
@@ -46,7 +49,7 @@ export class AuthService {
     return this.authState !== null;
   }
 
-  signUpWithEmail(email: string, password: string) {
+  signUpWithEmail(email: string, password: string, model: User) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
         this.authState = user;
@@ -55,6 +58,9 @@ export class AuthService {
         this.toastr.success('You have sign up!', 'Success!');
         this.router.navigate(['/']);
       })
+      .then(() => {
+        this.userData.addUser(this.currentUserId, model);
+    })
       .catch((error) => {
         this.toastr.error(error.message, 'Ooops!');
         this.router.navigate(['/']);
