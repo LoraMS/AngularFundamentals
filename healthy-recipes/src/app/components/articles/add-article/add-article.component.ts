@@ -12,7 +12,6 @@ import { ArticlesService } from './../../../services/articles.service';
 
 const IMAGE_REGEX = /^((https?|ftp):)?\/\/.*(jpeg|jpg|png|gif|bmp)$/;
 
-
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
@@ -37,8 +36,8 @@ export class AddArticleComponent implements OnInit {
 
   ngOnInit() {
     this.articleForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(70)]],
-      author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(45)]],
+      author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
       description: ['', [Validators.required, Validators.minLength(200), Validators.maxLength(1500)]],
       image: ['', [Validators.required, Validators.pattern(IMAGE_REGEX)]]
     });
@@ -86,7 +85,7 @@ export class AddArticleComponent implements OnInit {
         this.titleMessage = 'Title should be at least 5 symbols long!';
       }
       if (c.errors.maxlength) {
-        this.titleMessage = 'Title should be at maximum 70 symbols long!';
+        this.titleMessage = 'Title should be at maximum 45 symbols long!';
       }
     }
   }
@@ -98,10 +97,10 @@ export class AddArticleComponent implements OnInit {
         this.authorMessage = 'Author is required!';
       }
       if (c.errors.minlength) {
-        this.authorMessage = 'Author should be at least 5 symbols long!';
+        this.authorMessage = 'Author should be at least 2 symbols long!';
       }
       if (c.errors.maxlength) {
-        this.authorMessage = 'Author should be at maximum 50 symbols long!';
+        this.authorMessage = 'Author should be at maximum 40 symbols long!';
       }
     }
   }
@@ -133,7 +132,7 @@ export class AddArticleComponent implements OnInit {
     }
   }
 
-  addArticle(formData) {
+  addArticle() {
     const newArticle = new Article(this.title, this.author, localStorage.getItem('authkey'),
      Date.now(), this.description, this.image, this.comments);
     this.data.addArticle(newArticle);
