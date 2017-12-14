@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RecipeCollectionComponent } from './collection/recipe-collection/recipe-collection.component';
 import { ArticleCollectionComponent } from './collection/article-collection/article-collection.component';
 import { UserRoutingModule } from './user-routing.module';
-
+import { ZoomTextDirective } from './../../directives/zoom-text.directive';
 
 @NgModule({
   imports: [
@@ -22,7 +22,8 @@ import { UserRoutingModule } from './user-routing.module';
     LoginComponent,
     ProfileComponent,
     RecipeCollectionComponent,
-    ArticleCollectionComponent
+    ArticleCollectionComponent,
+    ZoomTextDirective
   ],
   providers: [ ],
 })

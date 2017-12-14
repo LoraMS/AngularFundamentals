@@ -7,3 +7,7 @@ h3{
     color: rgb(119, 115, 115);
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
+
+ul{
+    list-style-type: none;
+}
