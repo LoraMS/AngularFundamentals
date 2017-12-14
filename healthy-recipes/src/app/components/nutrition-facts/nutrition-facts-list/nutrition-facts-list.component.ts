@@ -19,11 +19,10 @@ export class NutritionFactsListComponent implements OnInit {
     this.data.allNutritionFacts.subscribe(data => {
       this.facts = data;
     },
-    error => {
-      this.toastr.error(error.message, 'Ooops!');
-    }
-  );
-}
+      error => {
+        this.toastr.error(error.message, 'Ooops!');
+      }
+    );
   }
-
 }
+
