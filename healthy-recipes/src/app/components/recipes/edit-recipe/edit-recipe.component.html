@@ -1,52 +1,69 @@
 <div class="container">
-  <!-- <p *ngIf="errorMessage.length > 0" class="text-danger">
-              {{errorMessage}}</p>
-            <p *ngIf="error.message.length > 0" class="text-danger">
-              {{error.message}}</p>         -->
   <div class="card">
     <div class="card-block">
       <h2 class="text-center">Edit Recipe</h2>
-      <form role="form" (ngSubmit)="editRecipe(recipeEditForm.value)" #recipeEditForm="ngForm" >
-        <div class="form-group row">
+      <form role="form" (ngSubmit)="editRecipe()" [formGroup]="recipeEditForm" >
+        <div class="form-group row" [ngClass]="{'has-error': titleMessage}">
           <label for="title" class="sr-only control-label">title</label>
           <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-            <input type="text" class="form-control" id="title" placeholder="Title" required="" name="title" [(ngModel)]="recipe.title">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="author" class="sr-only control-label">author</label>
-          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-            <input type="text" class="form-control" id="author" placeholder="Author" required="" name="author" [(ngModel)]="recipe.author">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="category" class="sr-only control-label">category</label>
-          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-            <input type="text" class="form-control" id="category" placeholder="Category" required="" name="category" [(ngModel)]="recipe.category" [ngbTypeahead]="search">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="description" class="sr-only control-label">description</label>
-          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-            <input type="text" class="form-control" id="description" placeholder="Description" required="" name="description" [(ngModel)]="recipe.description">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="ingredients" class="sr-only control-label">ingredients</label>
-          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-            <input type="text" class="form-control" id="ingredients" placeholder="Ingredients" required="" name="ingredients" [(ngModel)]="recipe.ingredients">
-          </div>
-        </div>
-        <div class="form-group row">
-            <label for="steps" class="sr-only control-label">steps</label>
-            <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-              <textarea class="form-control" id="steps"  placeholder="Steps" required="" name="steps" [(ngModel)]="recipe.steps"></textarea>
+            <input type="text" class="form-control" id="title" placeholder="Title" required="" name="title" [(ngModel)]="recipe.title"  formControlName="title">
+            <div *ngIf="titleMessage" class="alert alert-danger">
+              {{titleMessage}}
             </div>
           </div>
-          <div class="form-group row">
+        </div>
+        <div class="form-group row" [ngClass]="{'has-error': authorMessage}">
+          <label for="author" class="sr-only control-label">author</label>
+          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
+            <input type="text" class="form-control" id="author" placeholder="Author" required="" name="author" [(ngModel)]="recipe.author" formControlName="author">
+            <div *ngIf="authorMessage" class="alert alert-danger">
+              {{authorMessage}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" [ngClass]="{'has-error': categoryMessage}">
+          <label for="category" class="sr-only control-label">category</label>
+          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
+            <input type="text" class="form-control" id="category" placeholder="Category" required="" name="category" [(ngModel)]="recipe.category" [ngbTypeahead]="search" formControlName="category">
+            <div *ngIf="categoryMessage" class="alert alert-danger">
+              {{categoryMessage}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" [ngClass]="{'has-error': descriptionMessage}">
+          <label for="description" class="sr-only control-label">description</label>
+          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
+            <input type="text" class="form-control" id="description" placeholder="Description" required="" name="description" [(ngModel)]="recipe.description" formControlName="description">
+            <div *ngIf="descriptionMessage" class="alert alert-danger">
+              {{descriptionMessage}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" [ngClass]="{'has-error': ingredientsMessage}">
+          <label for="ingredients" class="sr-only control-label">ingredients</label>
+          <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
+            <input type="text" class="form-control" id="ingredients" placeholder="Ingredients" required="" name="ingredients" [(ngModel)]="recipe.ingredients" formControlName="ingredients">
+            <div *ngIf="ingredientsMessage" class="alert alert-danger">
+              {{ingredientsMessage}}
+            </div>
+          </div>
+        </div>
+        <div class="form-group row" [ngClass]="{'has-error': stepsMessage}">
+            <label for="steps" class="sr-only control-label">steps</label>
+            <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
+              <textarea class="form-control" id="steps"  placeholder="Steps" required="" name="steps" [(ngModel)]="recipe.steps" formControlName="steps"></textarea>
+              <div *ngIf="stepsMessage" class="alert alert-danger">
+                {{stepsMessage}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="{'has-error': imageMessage}">
             <label for="image" class="sr-only control-label">image</label>
             <div class="offset-sm-2 col-sm-8" *ngIf="recipe">
-              <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="recipe.image">
+              <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="recipe.image" formControlName="image">
+              <div *ngIf="imageMessage" class="alert alert-danger">
+                {{imageMessage}}
+              </div>
             </div>
           </div>
           <div *ngIf="recipe" class=preview>
@@ -54,7 +71,7 @@
           </div>
         <div class="form-group row">
           <div class="offset-sm-2 col-sm-8 pb-3 pt-2">
-            <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Edit Recipe</button>
+            <button type="submit" [disabled]="!recipeEditForm.valid" class="btn btn-outline-secondary btn-lg btn-block">Edit Recipe</button>
           </div>
         </div>
       </form>
