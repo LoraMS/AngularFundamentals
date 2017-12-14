@@ -35,7 +35,6 @@ export class RecipeAuthorGuard implements CanActivate {
             return this.recipeData.getRecipeById(id).valueChanges()
                      .take(1)
                      .map((r) => {
-                         console.log(r)
                         return r.userId === this.userId || this.role === 'admin';
                      })
                      .do(authorized => {

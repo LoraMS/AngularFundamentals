@@ -23,13 +23,17 @@ export class CommentsComponent implements OnInit {
   public item: any;
   public pathName: string;
 
+  public commentsAddForm: FormGroup;
+  public commentMessage: string;
+
   constructor(
     private toastr: ToastrService,
     private auth: AuthService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private fb: FormBuilder
   ) {
     this.textComment = '';
   }
@@ -44,9 +48,36 @@ export class CommentsComponent implements OnInit {
         this.item = data;
       });
     });
+
+    this.commentsAddForm = this.fb.group({
+      comment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(1000)]]
+    });
+
+    const commentControl = this.commentsAddForm.get('comment');
+    commentControl
+    .valueChanges
+    .debounceTime(1000)
+    .subscribe(value => {
+      this.setMessage(commentControl);
+    });
   }
 
-  onSubmit(formData) {
+  setMessage(c: AbstractControl): void {
+    this.commentMessage = '';
+    if ((c.touched || c.dirty) && c.errors) {
+      if (c.errors.required) {
+        this.commentMessage = 'Comment is required!';
+      }
+      if (c.errors.minlength) {
+        this.commentMessage = 'Comment should be at least 2 symbols long!';
+      }
+      if (c.errors.maxlength) {
+        this.commentMessage = 'Comment should be at maximum 1000 symbols long!';
+      }
+    }
+  }
+
+  onSubmit() {
     const comment = {
       username: this.username,
       date: this.date,

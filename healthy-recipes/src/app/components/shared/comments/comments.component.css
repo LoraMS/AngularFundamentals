@@ -1,27 +1,31 @@
 textarea {
-    padding: 10px;
-    border: 2px solid gray;
-    width: 97%;
-  }
-  
-  button {
-    background-color: #009966;
-    color: #fff;
-    padding: 5px;
-  }
-  
-  .comments-form {
-    margin-top: 50px;
-  }
-  
-  div{
-    text-align: right;
-    color: #636363;
-    font-size: 10px;
-    clear: both;
-  }
-  
-  .comment-btn{
-    text-align: right;
-    margin-top: 10px;
-  }
+  padding: 10px;
+  border: 2px solid gray;
+  width: 100%;
+}
+
+button {
+  background-color: #009966;
+  color: #fff;
+  padding: 5px;
+}
+
+.comments-form {
+  margin-top: 50px;
+}
+
+div {
+  text-align: right;
+  color: #636363;
+  font-size: 10px;
+}
+
+.comment-btn {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.alert {
+  text-align: left;
+  font-size: 16px;
+}

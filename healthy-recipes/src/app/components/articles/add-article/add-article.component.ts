@@ -32,7 +32,11 @@ export class AddArticleComponent implements OnInit {
   public descriptionMessage: string;
   public imageMessage: string;
 
-  constructor(private data: ArticlesService, private router: Router, private toastr: ToastrService, private fb: FormBuilder) { }
+  constructor(
+    private data: ArticlesService,
+    private router: Router,
+    private toastr: ToastrService,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.articleForm = this.fb.group({

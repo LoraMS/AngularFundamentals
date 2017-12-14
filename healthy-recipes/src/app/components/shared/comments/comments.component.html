@@ -1,9 +1,12 @@
-<form class="comments-form" *ngIf="isAuthenticated()" #commentAddForm="ngForm" (ngSubmit)="onSubmit(commentAddForm.value)">
-  <div class="form-group row">
+<form class="comments-form" *ngIf="isAuthenticated()" (ngSubmit)="onSubmit()" [formGroup]="commentsAddForm">
+  <div class="form-group" [ngClass]="{'has-error': commentMessage}">
     <label for="textComment" class="sr-only control-label">text comment</label>
-    <textarea class="form-control" id="textComment" placeholder="Leave a comment" required="" name="textComment" [(ngModel)]="textComment" rows="4"></textarea>
+    <textarea class="form-control" id="textComment" placeholder="Leave a comment" required="" name="textComment" [(ngModel)]="textComment" rows="4" formControlName="comment"></textarea>
+    <div *ngIf="commentMessage" class="alert alert-danger">
+      {{commentMessage}}
+    </div>
   </div>
   <div class="comment-btn">
-    <button class="btn btn-outline-secondary" type="submit">Add Comment</button>
+    <button [disabled]="!commentsAddForm.valid" class="btn btn-outline-secondary" type="submit">Add Comment</button>
   </div>
 </form>
