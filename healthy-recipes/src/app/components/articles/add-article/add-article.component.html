@@ -2,29 +2,42 @@
     <div class="card">
       <div class="card-block">
         <h2 class="text-center">Add New Article</h2>
-        <form role="form" (ngSubmit)="addArticle(articleAddForm.value)" #articleAddForm="ngForm" >
-          <div class="form-group row">
+        <!-- <form role="form" (ngSubmit)="addArticle(articleAddForm.value)" #articleAddForm="ngForm" [formGroup]="articleForm"> -->
+        <form role="form" (ngSubmit)="addArticle()" [formGroup]="articleForm">
+          <div class="form-group row" [ngClass]="{'has-error': titleMessage}">
             <label for="title" class="sr-only control-label">title</label>
             <div class="offset-sm-2 col-sm-8">
-              <input type="text" class="form-control" id="title" placeholder="Title" required="" name="title" [(ngModel)]="title">
+              <input type="text" class="form-control" id="title" placeholder="Title" required [(ngModel)]="title" name="title" formControlName="title">
+              <div *ngIf="titleMessage" class="alert alert-danger">
+                {{titleMessage}}
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="author" class="sr-only control-label">author</label>
             <div class="offset-sm-2 col-sm-8">
-              <input type="text" class="form-control" id="author" placeholder="Author" required="" name="author" [(ngModel)]="author">
+              <input type="text" class="form-control" id="author" placeholder="Author" required="" name="author" [(ngModel)]="author" formControlName="author">
+              <div *ngIf="authorMessage" class="alert alert-danger">
+                {{authorMessage}}
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="description" class="sr-only control-label">description</label>
             <div class="offset-sm-2 col-sm-8">
-              <textarea class="form-control" id="description" placeholder="Description" required="" name="description" [(ngModel)]="description"></textarea>
+              <textarea class="form-control" id="description" placeholder="Description" required="" name="description" [(ngModel)]="description" formControlName="description"></textarea>
+              <div *ngIf="descriptionMessage" class="alert alert-danger">
+                {{descriptionMessage}}
+              </div>
             </div>
           </div>
             <div class="form-group row">
               <label for="image" class="sr-only control-label">image</label>
               <div class="offset-sm-2 col-sm-8">
-                <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="image">
+                <input type="text" class="form-control" id="image" placeholder="Image" required="" name="image" [(ngModel)]="image" formControlName="image">
+                <div *ngIf="imageMessage" class="alert alert-danger">
+                  {{imageMessage}}
+                </div>
               </div>
             </div>
             <div *ngIf="image" class=preview>
@@ -32,7 +45,7 @@
             </div>
           <div class="form-group row">
             <div class="offset-sm-2 col-sm-8 pb-3 pt-2">
-              <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Add Article</button>
+              <button type="submit" [disabled]="!articleForm.valid" class="btn btn-outline-secondary btn-lg btn-block">Add Article</button>
             </div>
           </div>
         </form>
