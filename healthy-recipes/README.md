@@ -25,3 +25,43 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## About the project
+
+Healthy Recipes is Single Page Application using Angular.The project works with Firebase(Database/Authentication), Bootstrap4, Toastr, etc.
+
+The Web Application consists of the following sections:
+
+## Home section
+
+* Welcome screen with a preview of what you can expect form our site.
+
+## Recipes section
+
+* You can choose from many various and healthy recipes.
+* Rate recipe.
+* Create one of your own.
+* Leave a comment.
+
+## Articles section
+
+* You can read bout healthy lifestyle.
+* Post your own article.
+* Leave a comment
+
+## Nutricion facts section
+
+* Read about different nutrition facts labels.
+
+## Authentication section
+
+* Register Form
+* Login Form
+
+## User Profile section
+
+* You can view all your user details and collections
+
+
+
+
