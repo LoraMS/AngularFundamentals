@@ -87,9 +87,11 @@ The Web Application consists of the following sections:
  * can delete articles
  * can post and delete nutrition facts
  
- ## Live demo: [Preview](https://healthy-recipes-832f5.firebaseapp.com/home)
+ ## Live demo
+ * [Preview](https://healthy-recipes-832f5.firebaseapp.com/home)
  
- ## Source code: [GitHub](https://github.com/LoraMS/AngularFundamentals/tree/master/healthy-recipes)
+ ## Source code
+ * [GitHub](https://github.com/LoraMS/AngularFundamentals/tree/master/healthy-recipes)
  
  
 
