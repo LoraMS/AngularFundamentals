@@ -212,7 +212,7 @@ export class EditRecipeComponent implements OnInit {
     }
   }
 
-  editRecipe(formData) {
+  editRecipe() {
     this.data.editRecipe(this.recipeKey, this.recipe);
     this.toastr.success('Your recipe was updated successfully!', 'Success!');
 

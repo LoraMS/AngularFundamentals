@@ -379,7 +379,7 @@ export class AddNutritionFactsComponent implements OnInit {
     }
   }
 
-  addNutritionFacts(formData) {
+  addNutritionFacts() {
     const newNutritionFact = new NutritionFacts(this.productName, this.image, this.servingSize,
       this.calories, this.saturatedFat, this.transFat, this.cholesterol, this.sodium,
       this.dietaryFiber, this.totalSugars, this.protein, this.vitaminA, this.vitaminC, this.calcium, this.iron);
