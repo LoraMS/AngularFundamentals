@@ -30,6 +30,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Healthy Recipes is Single Page Application using Angular. The project works with Firebase(Database/Authentication), Bootstrap4, Toastr, etc.
 
+[## Project Requirements](https://softuni.bg/trainings/resources/officedocument/19746/project-assignment-angular-fundamentals-november-2017/open)
+
 The Web Application consists of the following sections:
 
 ## Home section
@@ -85,7 +87,9 @@ The Web Application consists of the following sections:
  * can delete articles
  * can post and delete nutrition facts
  
- ## Live demo: 
+ ## Live demo: [Preview](https://healthy-recipes-832f5.firebaseapp.com/home)
+ 
+ ## Source code: [GitHub](https://github.com/LoraMS/AngularFundamentals/tree/master/healthy-recipes)
  
  
 
