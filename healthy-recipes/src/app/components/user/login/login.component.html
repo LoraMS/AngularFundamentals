@@ -2,28 +2,47 @@
   <ngb-tabset>
     <ngb-tab title="Login">
       <ng-template ngbTabContent>
-          <p *ngIf="errorMessage.length > 0" class="text-danger">
-              {{errorMessage}}</p>
-          <p *ngIf="error.message.length > 0" class="text-danger">
-              {{error.message}}</p>  
+        <p *ngIf="errorMessage.length > 0" class="text-danger">
+          {{errorMessage}}</p>
+        <p *ngIf="error.message.length > 0" class="text-danger">
+          {{error.message}}</p>
         <div class="card">
           <div class="card-block">
             <h2 class="text-center">Please Login</h2>
             <form role="form" (ngSubmit)="onLoginEmail()">
-                <div class="form-group row">
-                    <label for="email" class="sr-only control-label">email</label>
-                    <div class="input-group offset-sm-2 col-sm-8">
-                        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" id="email" placeholder="Email address" required="" name="email" [(ngModel)]="email">
-                    </div>
+              <div class="form-group row">
+                <label for="email" class="sr-only control-label">email</label>
+                <div class="input-group offset-sm-2 col-sm-8">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="email" class="form-control" id="email" placeholder="Email address" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    name="email" [(ngModel)]="email" #emailLog="ngModel">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="emailLog.valid || emailLog.pristine && emailLog.untouched" class="alert alert-danger">
+                    <div [hidden]="!emailLog.hasError('required')">Email is required.</div>
+                    <div [hidden]="!emailLog.hasError('pattern')">Please fill a correct email address.</div>
                   </div>
-                  <div class="form-group row">
-                    <label for="password" class="sr-only control-label">password</label>
-                    <div class="input-group offset-sm-2 col-sm-8">
-                        <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-                      <input type="password" class="form-control" id="password" placeholder="Password" required="" name="password" [(ngModel)]="password">
-                    </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="sr-only control-label">password</label>
+                <div class="input-group offset-sm-2 col-sm-8">
+                  <span class="input-group-addon">
+                    <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required name="password" [(ngModel)]="password"
+                    minlength="6" maxlength="16" #passwordLog="ngModel">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="passwordLog.valid || passwordLog.pristine && passwordLog.untouched" class="alert alert-danger">
+                    <div [hidden]="!passwordLog.hasError('required')">Password is required</div>
+                    <div [hidden]="!passwordLog.hasError('minlength')">Password must be atleast 6 characters long</div>
+                    <div [hidden]="!passwordLog.hasError('maxlength')">Password must be maximum 16 characters long</div>
                   </div>
+                </div>
+              </div>
               <div class="form-group row">
                 <div class="offset-sm-2 col-sm-8 pb-3 pt-2">
                   <button type="submit" class="btn btn-login btn-lg btn-block">Sign-in</button>
@@ -36,10 +55,6 @@
     </ngb-tab>
     <ngb-tab title="Register">
       <ng-template ngbTabContent>
-          <p *ngIf="errorMessage.length > 0" class="text-danger">
-              {{errorMessage}}</p>
-            <p *ngIf="error.message.length > 0" class="text-danger">
-              {{error.message}}</p>        
         <div class="card">
           <div class="card-block">
             <h2 class="text-center">Please Register</h2>
@@ -47,36 +62,85 @@
               <div class="form-group row">
                 <label for="name" class="sr-only control-label">name</label>
                 <div class="input-group offset-sm-2 col-sm-8">
-                    <span class="input-group-addon"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" id="name" placeholder="Name" required="" name="name" [(ngModel)]="name">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user-o fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" id="name" placeholder="Name" required="" name="name" [(ngModel)]="name" minlength="2"
+                    maxlength="20" #nameReg="ngModel">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="nameReg.valid || nameReg.pristine && nameReg.untouched" class="alert alert-danger">
+                    <div [hidden]="!nameReg.hasError('required')">Name is required</div>
+                    <div [hidden]="!nameReg.hasError('minlength')">Name must be at least 2 symbols long.</div>
+                    <div [hidden]="!nameReg.hasError('maxlength')">Name must be maximum 20 symbols long.</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="username" class="sr-only control-label">username</label>
                 <div class="input-group offset-sm-2 col-sm-8">
-                    <span class="input-group-addon">@</span>
-                  <input type="text" class="form-control" id="username" placeholder="Username" required="" name="username" [(ngModel)]="username">
+                  <span class="input-group-addon">@</span>
+                  <input type="text" class="form-control" id="username" placeholder="Username" required="" name="username" [(ngModel)]="username"
+                    minlength="2" maxlength="20" #usernameReg="ngModel">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="usernameReg.valid || usernameReg.pristine && usernameReg.untouched" class="alert alert-danger">
+                    <div [hidden]="!usernameReg.hasError('required')">Username is required</div>
+                    <div [hidden]="!usernameReg.hasError('minlength')">Username must be at least 2 symbols long.</div>
+                    <div [hidden]="!usernameReg.hasError('maxlength')">Username must be maximum 20 symbols long.</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="email" class="sr-only control-label">email</label>
                 <div class="input-group offset-sm-2 col-sm-8">
-                    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-                  <input type="email" class="form-control" id="email" placeholder="Email" required="" name="email" [(ngModel)]="email">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="email" class="form-control" id="email" placeholder="Email" required="" name="email" [(ngModel)]="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    #emailReg="ngModel">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="emailReg.valid || emailReg.pristine && emailReg.untouched" class="alert alert-danger">
+                    <div [hidden]="!emailReg.hasError('required')">Email is required.</div>
+                    <div [hidden]="!emailReg.hasError('pattern')">Please fill a correct email address.</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="password" class="sr-only control-label">password</label>
                 <div class="input-group offset-sm-2 col-sm-8">
-                    <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" id="password" placeholder="Password" required="" name="password" [(ngModel)]="password">
+                  <span class="input-group-addon">
+                    <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required="" name="password" [(ngModel)]="password"
+                    minlength="6" maxlength="16" #passwordReg="ngModel" validateEqual="confirmPassword" reverse="true">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="passwordReg.valid || passwordReg.pristine && passwordReg.untouched" class="alert alert-danger">
+                    <div [hidden]="!passwordReg.hasError('required')">Password is required</div>
+                    <div [hidden]="!passwordReg.hasError('minlength')">Password must be atleast 6 characters long</div>
+                    <div [hidden]="!passwordReg.hasError('maxlength')">Password must be maximum 16 characters long</div>
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="password2" class="sr-only control-label">verify</label>
                 <div class="input-group offset-sm-2 col-sm-8">
-                    <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" id="password2" placeholder="Verify password" required="" name="password2" [(ngModel)]="password2">
+                  <span class="input-group-addon">
+                    <i class="fa fa-key fa-fw" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" class="form-control" id="password2" placeholder="Verify password" required="" name="password2" [(ngModel)]="password2"
+                    #confirmPassword="ngModel" validateEqual="passwordReg">
+                </div>
+                <div class="offset-sm-2 col-sm-8">
+                  <div [hidden]="confirmPassword.valid || (confirmPassword.pristine)" class="alert alert-danger">
+                    Password did not much.
+                  </div>
+                  <!-- <p *ngIf="errorMessage.length > 0" class="alert alert-danger">
+                    {{errorMessage}}</p>
+                <p *ngIf="error.message.length > 0" class="alert alert-danger">
+                    {{error.message}}</p>  -->
                 </div>
               </div>
               <div class="form-group row">
@@ -91,5 +155,3 @@
     </ngb-tab>
   </ngb-tabset>
 </div>
-
-

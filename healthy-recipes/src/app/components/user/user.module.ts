@@ -9,6 +9,7 @@ import { RecipeCollectionComponent } from './collection/recipe-collection/recipe
 import { ArticleCollectionComponent } from './collection/article-collection/article-collection.component';
 import { UserRoutingModule } from './user-routing.module';
 import { ZoomTextDirective } from './../../directives/zoom-text.directive';
+import { EqualValidator } from './../../directives/equal-validator.directive';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ZoomTextDirective } from './../../directives/zoom-text.directive';
     ProfileComponent,
     RecipeCollectionComponent,
     ArticleCollectionComponent,
-    ZoomTextDirective
+    ZoomTextDirective,
+    EqualValidator
   ],
   providers: [ ],
 })
