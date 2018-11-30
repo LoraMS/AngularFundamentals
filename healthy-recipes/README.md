@@ -9,7 +9,7 @@ Healthy Recipes is Single Page Application using Angular. The project works with
 ![Alt Text](https://github.com/LoraMS/AngularFundamentals/blob/master/healthy-recipes/src/assets/video-to-gif(1).gif)
 
 ## Project Requirements
-* [Requirements](https://softuni.bg/trainings/resources/officedocument/19746/project-assignment-angular-fundamentals-november-2017/open)
+* [Requirements](https://softuni.bg/trainings/resources/officedocument/19746/project-assignment-angular-fundamentals-november-2017/1812)
 
 The Web Application consists of the following sections:
 
